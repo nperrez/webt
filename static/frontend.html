@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainigs-Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel=stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <nav class="w3-bar w3-blue">
+        <a href="#info" class="w3-bar-item w3-button">Info</a>
+        <a href="#eingabe" class="w3-bar-item w3-button">Workout erfassen</a>
+        <a href="#ausgabe" class="w3-bar-item w3-button">Meine Statistik</a>
+    </nav>
+
+    <section id="info" class="w3-container w3-padding">
+        <h1 class="w3-text-blue">Trainigs-Tracker</h1>
+        <div class="w3-row">
+            <div class="w3-col m8 l8">
+                <p>Mit dieser Web-Applikation kannst du Trainings erfassen und deinen Fortschritt tracken.</p>
+                <p><strong> So funktionierts: </strong>Wähle die Trainingsart, Dauer und Intensität und klicke auf "Workout speichern". Dann werden die verbrannten Kalorien und die Statistik automatisch berechnet.</p>
+            </div>
+            <div class="w3-col m4 l4">
+                <img src="img/training.png" alt="Training" class="w3-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="eingabe" class="w3-container w3-padding w3-light-grey">
+        <h2 class="w3-text-blue">Neues Workout erfassen</h2>
+        <form id="workout-form" class="w3-container">
+            <div class="w3-row-padding">
+                <div class="w3-col s12 m6 l3">
+                    <label for="trainingsart">Trainingsart:</label>
+                    <select id="trainingsart" name="trainingsart" class="w3-select w3-border" required>
+                        <option value="">Bitte wählen</option>
+                        <option value="krafttraining">Krafttraining</option>
+                        <option value="joggen">Joggen</option>
+                        <option value="radfahren">Radfahren</option>
+                        <option value="schwimmen">Schwimmen</option>
+                        <option value="rudern">Rudern</option>
+                    </select>
+                    <span class="error-message" id="error-trainingsart"></span>
+                </div>
+                <div class="w3-col s12 m6 l3">
+                    <label for="dauer">Dauer (Minuten):</label>
+                    <input type="number" id="dauer" name="dauer" class="w3-input w3-border" min="1" max="300" required>
+                    <span class="error-message" id="error-dauer"></span>
+                </div>
+                <div class="w3-col s12 m6 l3">
+                    <label for="intensitaet">Intensität (1-10):</label>
+                    <input type="range" id="intensitaet" name="intensitaet" class="w3-border" min="1" max="10" value="5" required>
+                    <span id="intensitaet-wert">5</span>
+                    <span class="error-message" id="error-intensitaet"></span>
+                </div>
+                <div class="w3-col s12 m6 l3">
+                    <label for="datum">Datum:</label>
+                    <input type="date" id="datum" name="datum" class="w3-input w3-border" required>
+                    <span class="error-message" id="error-datum"></span>
+                </div>
+            </div>
+            <div class="w3-margin-top">
+                <button type="submit" class="w3-button w3-blue w3-hover-dark-grey">Workout speichern</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="ausgabe" class="w3-container w3-padding">
+        <h2 class="w3-text-blue">Deine Statistiken</h2>
+        <div id="ausgabe-inhalt" class="w3-panel">
+            <p class="w3-text-grey">Hier erscheinen deine Workout-Statistiken nach dem Speichern...</p>
+        </div>
+        <div class="w3-row-padding">
+            <div class="w3-col s12 m12 l8">
+                <canvas id="workout-chart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/validation.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
