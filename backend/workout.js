@@ -14,10 +14,10 @@ workouts.createIndex({ datum: -1 });
 // Kalorienfaktoren pro Trainingsart
 const kalorienFaktoren = {
     krafttraining: 8,
-    laufen: 10,
+    joggen: 10,
     radfahren: 7,
     schwimmen: 9,
-    yoga: 3
+    rudern: 3
 };
 
 // POST: Neues Workout speichern
@@ -65,6 +65,7 @@ router.post('/', async function(req, res) {
     }
 
     const selectedDate = new Date(body.datum);
+    selectedDate.setHours(0, 0, 0, 0);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     if (selectedDate > today) {

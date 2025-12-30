@@ -42,6 +42,7 @@ function validateDatum(value) {
         return { valid: false, message: 'Bitte wähle ein Datum aus.' };
     }
     const selectedDate = new Date(value);
+    selectedDate.setHours(0, 0, 0, 0);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     if (selectedDate > today) {
