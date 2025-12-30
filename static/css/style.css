@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.error-message {
+    display: none;
+    color: #f44336;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+#intensitaet-wert {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#workout-chart {
+    max-width: 100%;
+    height: auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
